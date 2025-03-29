@@ -1,5 +1,3 @@
-# Project Name
-
 ## Overview
 This project is a Java-based web automation framework using Selenium WebDriver and Cucumber for BDD (Behavior Driven Development). The project is built using Maven.
 
