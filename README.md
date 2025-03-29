@@ -51,14 +51,4 @@ Predefined steps provide a reusable and standardized way to write test scenarios
 You can refer to the `predefined.feature` file to see the available steps and their usage. These steps can be directly used in your feature files to create new test scenarios without writing additional step definitions.
 
 ## Contributing
-We encourage you to fork this repository and contribute to its development. Here are the steps to contribute:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes.
-4. Commit your changes (`git commit -m 'Add some feature'`).
-5. Push to the branch (`git push origin feature-branch`).
-6. Open a pull request.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+I welcome contributions to this project. If you would like to contribute, please fork the repository and submit your pull requests. Thank you for your support!
