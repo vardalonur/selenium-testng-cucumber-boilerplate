@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.test</groupId>
+    <artifactId>automation-framework</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <selenium.version>4.16.1</selenium.version>
+        <cucumber.version>7.15.0</cucumber.version>
+        <testng.version>7.8.0</testng.version>
+        <slf4j.version>2.0.9</slf4j.version>
+    </properties>
+
+    <dependencies>
+        <!-- Selenium -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+
+        <!-- Cucumber -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <!-- TestNG -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+
+        <!-- Logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.4.14</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>14</source>
+                    <target>14</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.0.0-M1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                        <configuration>
+
+                            <!-- UNCOMMENT - To add any exclusions if required -->
+                            <!-- <excludes> <exclude>**/*IT*.java</exclude> </excludes> -->
+
+                            <includes>
+
+                                <!-- UNCOMMENT BELOW LINE - To execute feature files with a single
+                                    runner -->
+                                <!-- <include>**/Default.java</include> -->
+
+                                <!-- UNCOMMENT BELOW LINE - To execute feature files with multiple
+                                    runners -->
+                                <include>**/*Runner.java</include>
+                            </includes>
+
+                            <!-- OPTIONAL UNCOMMENT BELOW 6 LINES - To set data provider thread count value.
+                            Default is 10. For executing using parallel or forking -->
+                            <!-- <properties>
+                                <property>
+                                    <name>dataproviderthreadcount</name>
+                                    <value>4</value>
+                                </property>
+                            </properties> -->
+
+                            <!-- OPTIONAL UNCOMMENT BELOW 3 LINES - In case of multiple runners to further reduce times.
+                            For executing using parallel -->
+                            <!-- <parallel>classes</parallel>
+                            <threadCount>4</threadCount>
+                            <perCoreThreadCount>true</perCoreThreadCount> -->
+
+                            <!-- UNCOMMENT BELOW 3 LINES - To execute using forking
+                                option -->
+                            <!-- <forkCount>2</forkCount>
+                            <reuseForks>true</reuseForks>
+                            <reportsDirectory>${project.build.directory}/failsafe-reports_${surefire.forkNumber}</reportsDirectory> -->
+
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
